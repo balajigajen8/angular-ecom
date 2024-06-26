@@ -1,13 +1,19 @@
-runtime: nodejs18
-instance_class: F2
-automatic_scaling:
-  target_cpu_utilization: 0.65
-  min_instances: 1
-  max_instances: 5
-
+runtime: python27
+api_version: 1
+threadsafe: true
 handlers:
-- url: /
-  static_files: dist/angular-ecom/index.html
-  upload: dist/angular-ecom/index.html
-- url: /
-  static_dir: dist/angular-ecom
+  - url: /
+    static_files: dist/[project-name]/index.html
+    upload: dist/[project-name]/index.html
+  - url: /
+    static_dir: dist/[project-name]
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - coverage
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
