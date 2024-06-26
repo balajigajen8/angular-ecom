@@ -19,11 +19,9 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: ./angular-ecom
         run: npm install
 
       - name: Build Angular app
-        working-directory: ./angular-ecom
         run: npm run build
 
       - name: Upload artifact
